@@ -1,0 +1,151 @@
+<footer class="bg-section">
+	<div class="footer-section" style="background-image: url({{ home.wave }});"></div>
+	<div class="container-lg">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="meta-content">
+					<h4>{{ footer.title.info }}</h4>
+					<p>{{ footer.meta }}</p>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="meta-content">
+					<h4>{{ footer.title.contact }}</h4>
+					<p class="mb-1"><i class="fas fa-map-marker"></i> <a class="mb-0">{{ footer.addr }}</a></p>
+					<p class="mb-1"><i class="fas fa-phone-alt"></i> <a href="tel:{{ footer.phone }}" class="mb-0">{{ footer.phone }}</a></p>
+					<p><i class="fas fa-at"></i> <a href="mailto:{{ footer.email }}">{{ footer.email }}</a></p>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="meta-content">
+					<h4>{{ footer.title.social }}</h4>
+					<ul class="nav social float-lg-right">
+						<li class="social_item nav-item"><a href="#" target="_blank"><div class="shadow-sm"><i class="fab fa-vk"></i></div></a></li>
+						<li class="social_item nav-item"><a href="#" target="_blank"><div class="shadow-sm"><i class="fab fa-facebook-f"></i></div></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<p class="meta text-center"><span> Copyright &copy; {{ "now"|date('Y') }} <a href="{{ function('home_url') }}">{{ bloginfo( 'name' ) }}</a> All Rights Reserved.</span></p>
+	</div>
+</footer>
+{{ function('wp_footer') }}
+<div id="cur_up" href="{{ cur_up.url }}" data-toggle="tooltip" data-placement="top" title="{{ cur_up.title }}"><i class="fas fa-angle-up"></i></div>
+<!-- Modal -->
+<div class="modal fade" id="phone-model" tabindex="-1" aria-labelledby="phoneLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+    	<div class="modal-content bg-light text-dark">
+      		<div class="modal-header bg-info text-light">
+        		<h5 class="modal-title" id="phoneLabel"><i class="fas fa-headset"></i> {{ footer.model.phone.title }}</h5>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
+      		<div class="modal-body" style="background-image: url({{ footer.model.background.full }});">
+				<form id="phone-form">
+  					<div class="form-group">
+    					<input type="text" class="form-control form-control-lg" id="exname" name="exname" placeholder="{{ footer.model.phone.name_holder }}" required>
+						<div class="invalid-feedback ml-3">
+							{{ footer.model.phone.invalid }}
+      					</div>
+  					</div>
+					<div class="form-group">
+						<input type="tel" class="form-control form-control-lg" id="exphone" name="exphone" placeholder="{{ footer.model.phone.phone_holder }}" required>
+					</div>
+					<div class="form-group text-right mt-4">
+						<button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i></i> {{ footer.model.phone.button }}</button>
+					</div>
+				</form>
+			</div>
+    	</div>
+	</div>
+</div>
+<div class="modal fade" id="service-model" tabindex="-1" aria-labelledby="serviceLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+    	<div class="modal-content bg-light text-dark">
+      		<div class="modal-header bg-info text-light">
+        		<h5 class="modal-title" id="serviceLabel"><i class="fas fa-headphones"></i> {{ footer.model.service.title }}</h5>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
+      		<div class="modal-body" style="background-image: url({{ footer.model.background.full }});">
+				<form id="service-form">
+  					<div class="form-group">
+    					<input type="text" class="form-control form-control-lg" id="sename" name="sename" placeholder="{{ footer.model.phone.name_holder }}" required>
+						<div class="invalid-feedback ml-3">
+							{{ footer.model.phone.invalid }}
+      					</div>
+  					</div>
+					<div class="form-group">
+						<input type="tel" class="form-control form-control-lg" id="sephone" name="sephone" placeholder="{{ footer.model.phone.phone_holder }}" required>
+					</div>
+					<div class="form-group">
+						<select class="form-control form-control-lg" id="seservice" name="seservice" required>
+							{% for card in service.cards %}
+  								<option value="{{ card.title }}">{{ card.title }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="form-group text-right mt-4">
+						<button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-share"></i> {{ footer.model.service.button }}</button>
+					</div>
+				</form>
+			</div>
+    	</div>
+	</div>
+</div>
+<div class="modal fade" id="calculate-model" tabindex="-1" aria-labelledby="calculateLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+    	<div class="modal-content bg-light text-dark">
+      		<div class="modal-header bg-info text-light">
+        		<h5 class="modal-title" id="calculateLabel"><i class="fas fa-headphones"></i> {{ footer.model.calculate.title }}</h5>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
+      		<div class="modal-body" style="background-image: url({{ footer.model.background.full }});">
+				<form id="calculate-form">
+					<div class="form-row">
+  					<div class="form-group col-12">
+    					<input type="text" class="form-control form-control-lg" id="caname" name="caname" placeholder="{{ footer.model.phone.name_holder }}" required>
+						<div class="invalid-feedback ml-3">
+							{{ footer.model.phone.invalid }}
+      					</div>
+  					</div>
+					<div class="form-group col-12">
+						<input type="tel" class="form-control form-control-lg" id="caphone" name="caphone" placeholder="{{ footer.model.phone.phone_holder }}" required>
+					</div>
+					<div class="form-group col-12">
+						<label for="caservice" class="ml-3">{{ footer.model.calculate.caservice }}</label>
+						<select class="form-control form-control-lg" id="caservice" name="caservice" required>
+							{% for card in service.cards %}
+  								<option value="{{ card.title }}">{{ card.title }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="form-group col-lg-6">
+						<label for="casquare" class="ml-3">{{ footer.model.calculate.casquare }}</label>
+						<input type="number" class="form-control form-control-lg" id="casquare" name="casquare" value="0" min="0" max="99999" step="0.1" required>
+					</div>
+					<div class="form-group col-lg-6">
+						<label for="caheight" class="ml-3">{{ footer.model.calculate.caheight }}</label>
+						<input type="number" class="form-control form-control-lg" id="caheight" name="caheight" value="0" min="0" max="99999" step="0.1" required>
+					</div>
+					<div class="form-group col-lg-6">
+						<label for="casides" class="ml-3">{{ footer.model.calculate.casides }}</label>
+						<input type="number" class="form-control form-control-lg" id="casides" name="casides" value="0" min="0" max="999" step="1" required>						
+					</div>
+					<div class="form-group col-lg-6">
+						<label for="caglass" class="ml-3">{{ footer.model.calculate.caglass }}</label>
+						<input type="number" class="form-control form-control-lg" id="caglass" name="caglass" value="0" min="0" max="99999" step="0.1" required>
+					</div>
+					<div class="form-group col-12 text-right mt-4">
+						<button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-calculator"></i> {{ footer.model.calculate.button }}</button>
+					</div>
+					</div>
+				</form>
+			</div>
+    	</div>
+	</div>
+</div>
